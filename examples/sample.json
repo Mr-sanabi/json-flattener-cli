@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "John Miller",
+    "email": "john.miller@example.com",
+    "active": true,
+    "address": {
+      "city": "Warsaw",
+      "country": "Poland",
+      "postal_code": "00-001"
+    },
+    "company": {
+      "name": "Northwind Trading",
+      "industry": "Retail",
+      "employee_count": 42
+    },
+    "subscription": {
+      "plan": "Pro",
+      "monthly_price": 29.99
+    }
+  },
+  {
+    "id": 2,
+    "name": "Anna Kowalska",
+    "email": "anna.kowalska@example.com",
+    "active": false,
+    "address": {
+      "city": "Krakow",
+      "country": "Poland",
+      "postal_code": "30-001"
+    },
+    "company": {
+      "name": "BlueSoft Analytics",
+      "industry": "Software",
+      "employee_count": 18
+    },
+    "subscription": {
+      "plan": "Free",
+      "monthly_price": 0
+    }
+  },
+  {
+    "id": 3,
+    "name": "Michael Brown",
+    "email": "michael.brown@example.com",
+    "active": true,
+    "address": {
+      "city": "Berlin",
+      "country": "Germany",
+      "postal_code": "10115"
+    },
+    "company": {
+      "name": "DataBridge GmbH",
+      "industry": "Data Services",
+      "employee_count": 75
+    },
+    "subscription": {
+      "plan": "Enterprise",
+      "monthly_price": 199.99
+    }
+  }
+]
