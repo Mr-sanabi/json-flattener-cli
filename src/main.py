@@ -1,8 +1,8 @@
 import argparse
 
-from json_loader import load_json
-from flattener import flatten_records
-from storage import save_csv
+from src.json_loader import load_json
+from src.flattener import flatten_records
+from src.storage import save_csv
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -28,7 +28,11 @@ def main():
         print("Warning: JSON list is empty")
         return
     
-    rows = flatten_records(records)
+    try:
+        rows = flatten_records(records)
+    except TypeError as error:
+        print(f"Error: {error}")
+        return
     save_csv(args.output_file, rows)
 
 
