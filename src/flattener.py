@@ -1,3 +1,6 @@
+import json
+
+
 def flatten_dict(data, parent_key=""):
     result = {}
 
@@ -11,13 +14,15 @@ def flatten_dict(data, parent_key=""):
             nested_result = flatten_dict(value, new_key)
             result.update(nested_result)
         else:
-            result[new_key] = value
+            result[new_key] = json.dumps(value, ensure_ascii=False) if isinstance(value, list) else value
         
     return result
 
 def flatten_records(records):
     rows = []
     for record in records:
+        if not isinstance(record, dict):
+            raise TypeError("Each record must be a JSON object")
         flat_records = flatten_dict(record)
         rows.append(flat_records)
     
