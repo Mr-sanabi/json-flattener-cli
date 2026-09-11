@@ -1,30 +1,16 @@
 # JSON Flattener CLI
 
-A standard-library Python CLI that converts nested JSON records into a flat CSV table.
+A Python 3.11+ CLI that converts a JSON list of objects into a CSV table. No runtime dependencies.
 
-## Features
-
-- recursively flattens nested dictionaries using dotted column names;
-- serializes list values as JSON text so their structure is preserved;
-- builds a union of fields across every record;
-- creates missing output directories;
-- reports invalid roots and malformed records clearly.
-
-## Usage
-
-The JSON root must be a list of objects.
+## Run
 
 ```bash
 python -m src.main data/input.json data/output.csv
 ```
 
-Example input:
+Nested dictionaries become dotted columns, such as `profile.city`. Lists remain JSON text inside cells; they are not expanded into rows. Columns include fields from all records.
 
-```json
-[{"id": 1, "profile": {"city": "Warsaw"}, "tags": ["python", "data"]}]
-```
-
-The corresponding columns include `id`, `profile.city`, and `tags`.
+Input must be a list of objects. For example: `[{"id": 1, "profile": {"city": "Warsaw"}}]`.
 
 ## Tests
 
@@ -32,7 +18,3 @@ The corresponding columns include `id`, `profile.city`, and `tags`.
 python -m pip install -r requirements-dev.txt
 python -m pytest -q
 ```
-
-## Stack
-
-Python 3.11+, argparse, json, csv, pytest. Runtime dependencies: none.
